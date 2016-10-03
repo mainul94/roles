@@ -32,4 +32,13 @@ class Role extends Model implements RoleHasRelationsContract
             $this->connection = $connection;
         }
     }
+
+    /**
+     * Get Permission Ids
+     * @return mixed
+     */
+    public function getPermissionIdAttribute()
+    {
+        return $this->permissions()->pluck('permission_id')->all();
+    }
 }
